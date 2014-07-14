@@ -1,0 +1,41 @@
+ <div class="span4">
+
+    {% if dwollaIsAuthed and pinIsEntered%}
+      <h2>Change Your PIN</h2>
+    {% elif dwollaIsAuthed%}
+      <h2>Enter Your PIN</h2>
+    {% else %}
+      <h2> Auth With Dwolla</h2>
+    {% endif %}
+
+    <div class="alert alert-info">
+      {{note}}
+    </div>
+
+    {% if dwollaIsAuthed and pinIsEntered%}
+    <form action="/dwolla/pin" method="POST">
+      <input type="text" name="newPIN" value="">
+      <button class="btn btn-block btn-warning" type="submit">
+        Change My PIN
+      </button>
+    </form>
+
+    {% elif dwollaIsAuthed%}
+    <form action="/dwolla/pin" method="POST">
+      <input type="text" name="newPIN" value="">
+      <button class="btn btn-block btn-warning" type="submit">
+        Save My PIN
+      </button>
+    </form>
+
+    {% else %}
+    <form action="/dwolla" method="GET">
+      <input type="hidden" name="operation" value="insertSubscription">
+      <input type="hidden" name="collection" value="locations">
+      <button class="btn btn-block btn-success" type="submit">
+        Auth With Dwolla
+      </button>
+    </form>
+
+    {% endif %}
+  </div>

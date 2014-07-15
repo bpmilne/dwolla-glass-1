@@ -1,4 +1,4 @@
-dwolla-glass
+dwolla-glass (see2pay)
 ============
 
 [Google Mirror API](https://developers.google.com/glass/develop/mirror/index) based web service which allows Google Glass users to send money to nearby merchants using [Dwolla](https://www.dwolla.com/).
